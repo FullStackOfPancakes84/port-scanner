@@ -12,8 +12,6 @@ except:
     import subprocess
     import sys 
     install('cprint')
-    
-
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -30,7 +28,7 @@ def scan_port(port, timeout=DEFAULT_TIMEOUT):
     except:
         return False
 
-for i in range(1,100):
+for i in range(1,1024):
     if scan_port(i):
         cprint.info('%d [+] connection successful' % (i))
         s.close()
