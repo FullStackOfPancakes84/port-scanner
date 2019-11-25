@@ -11,11 +11,12 @@ except:
 
 # Set our variables
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-HOST = input('[+] Enter target IP: ')
-DEFAULT_TIMEOUT = 0.5
+
+# Enter a website address or specific IP you wish to scan
+HOST = input('[>>] Enter target IP: ') 
 
 class PortScanner:
-    def __init__(self, port, address):
+    def __init__(self, address, port):
         self.port = port 
         self.address = address
 
@@ -23,17 +24,12 @@ class PortScanner:
         s = socket.socket()
         try:
             s.connect((HOST, port))
+            s.close()
             return True
         except:
             return False
 
-for i in range(444):
-    scanner = PortScanner(i, HOST)
+for i in range(1024):
+    scanner = PortScanner(HOST, i)
     if scanner.scan_port(i):
-        cprint.info('%d [+] connection successful' % (i) )
-        s.close()
-
-
-
-
-    
+        cprint.info('{} [+] connection successful'.format(i) )
