@@ -9,6 +9,12 @@ except:
     import sys 
     subprocess.call([sys.executable, '-m', 'pip', 'install', 'cprint'])
 
+def opening_message():
+    quotes = "''"
+    cprint.ok('When using a website address such as www.google.com, wrap the text in {}'.format(quotes))
+
+opening_message()
+
 # Set our variables
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 COUNT = 0
@@ -35,7 +41,10 @@ class PortScanner:
 def return_count(address, count):
     cprint.warn('Scan of {} returned {} open ports'.format(address, count) )
 
+
+
 if __name__ == '__main__':
+
     # Scan ports in range 
     for i in range(1024):
         scanner = PortScanner(HOST, i)
