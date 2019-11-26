@@ -41,8 +41,6 @@ class PortScanner:
 def return_count(address, count):
     cprint.warn('Scan of {} returned {} open ports'.format(address, count) )
 
-
-
 if __name__ == '__main__':
 
     # Scan ports in range 
